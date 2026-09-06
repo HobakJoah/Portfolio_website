@@ -1,11 +1,19 @@
+import { useState } from 'react';
+import BootSequence from './components/BootSequence';
+import MainContent from './components/MainContent';
+
 function App() {
+  const [booted, setBooted] = useState(false);
+
   return (
-    <div className="flex h-screen items-center justify-center">
-      <h1 className="text-4xl font-bold text-green-500 underline decoration-wavy">
-        Tailwind v4 is working!
-      </h1>
+    <div className="min-h-screen p-6 md:p-16 max-w-3xl mx-auto">
+      {!booted ? (
+        <BootSequence onComplete={() => setBooted(true)} />
+      ) : (
+        <MainContent />
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

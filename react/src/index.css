@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* This overrides the default mono font to match the terminal aesthetic */
   --font-mono: "Fira Code", monospace, ui-monospace, SFMono-Regular;
+  
+  /* Custom fade-in animation */
+  --animate-fade-in: fade-in 1s ease-out forwards;
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
 }
 
 body {
