@@ -3,18 +3,16 @@ import { useState, useEffect } from 'react';
 export default function BootSequence({ onComplete }) {
   // We can define the facts outside the useEffect now
   const facts = [
-    "I love playing rugby!\n I won the State Champ twice in high school!",
+    "I love playing rugby!\n I won the State Championship twice in high school!",
     "I love watching anime.\nMy favorite one is either 86 or Your Name \n(You can see this in my chatbot project..)",
     "The only game I play? League of Legends\n(you probably noticed it when you saw this)",
-    "Something about Quantum Physics is really intruiging to me...",
-    "I actually had fun in my mandatory military service in Korea!"
+    "Something about Quantum Physics is really intruiging to me..."
   ];
 
   // This immediately picks a random fact the exact moment the component loads
   const [fact] = useState(() => facts[Math.floor(Math.random() * facts.length)]);
 
   useEffect(() => {
-    // Increased to 3.5 seconds (3500ms) so users have time to read the longer text
     const timer = setTimeout(() => {
       onComplete();
     }, 3000);

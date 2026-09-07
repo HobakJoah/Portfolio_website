@@ -20,7 +20,7 @@ export default function Home() {
 
         <div className="flex flex-col gap-6 text-gray-300 leading-relaxed max-w-xl text-lg font-semibold">
           <p>
-            Currently a sophomore in Computer Science at Purdue University building ideas and dreams!
+            Currently a sophomore in Computer Science at Purdue University building ideas and dreams.
           </p>
           <p>
             I believe the best solutions live just outside the boundaries of conventional architecture. <br />
