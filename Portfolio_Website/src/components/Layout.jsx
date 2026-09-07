@@ -6,14 +6,14 @@ export default function Layout() {
     { name: 'work', href: '/work', isRoute: true },
     { name: 'about', href: '/', isRoute: true },
     { name: 'search', href: '#search', shortcut: '⌘K', isRoute: false }, 
-    { name: 'resume', href: '/resume.pdf', isRoute: false },
+    { name: 'resume', href: '/resume', isRoute: true },
     { name: 'get in touch', href: 'mailto:your-email@example.com', isRoute: false },
   ];
 
   return (
     <div className="animate-fade-in text-gray-200 mt-8 flex flex-col min-h-[85vh]">
       <header className="mb-12">
-        <h1 className="text-lg font-medium mb-6 text-white tracking-tight lowercase">
+        <h1 className="text-lg font-medium mb-6 text-white tracking-tight">
           <Link to="/">Gunho Park</Link>
         </h1>
         

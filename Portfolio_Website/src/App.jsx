@@ -4,6 +4,7 @@ import BootSequence from './components/BootSequence';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
+import Resume from './pages/Resume';
 
 function App() {
   const [booted, setBooted] = useState(false);
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="projects" element={<Projects />} />
+              <Route path="resume" element={<Resume />} />
               <Route path="work" element={<div className="animate-fade-in text-gray-400 text-sm">work experience coming soon...</div>} />
             </Route>
           </Routes>

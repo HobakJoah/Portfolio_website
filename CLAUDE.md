@@ -8,7 +8,7 @@ The actual application lives in `react/` — a Vite + React app. The repo root a
 
 ## Working agreement
 
-Ask for permission before executing any command or making changes — don't run builds, installs, lints, or edits unprompted.
+Ask for permission before executing any command or making changes — don't run builds, installs, lints, or edits unprompted. Describing a bug or problem is not itself permission to fix it: diagnose and propose the fix first, then wait for explicit go-ahead before editing.
 
 ## Commands
 
