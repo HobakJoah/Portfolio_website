@@ -14,7 +14,7 @@ function App() {
       {!booted ? (
         <BootSequence onComplete={() => setBooted(true)} />
       ) : (
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <Routes>
             {/* The Layout component wraps all routes inside it */}
             <Route path="/" element={<Layout />}>

@@ -1,7 +1,7 @@
 import { FiDownload, FiExternalLink } from 'react-icons/fi';
 
 export default function Resume() {
-  const resumePdfUrl = "/resume.pdf";
+  const resumePdfUrl = `${import.meta.env.BASE_URL}resume.pdf`;
 
   return (
     <div className="animate-fade-in text-gray-200 mt-12 flex flex-col min-h-[95vh] w-full max-w-none mx-auto px-4 md:px-10">
