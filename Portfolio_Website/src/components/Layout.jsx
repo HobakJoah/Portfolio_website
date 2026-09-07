@@ -9,7 +9,7 @@ export default function Layout() {
   ];
 
   const utilityLinks = [
-    { name: 'search', href: '#search', shortcut: '⌘K', isRoute: false }, 
+    //{ name: 'search', href: '#search', shortcut: '⌘K', isRoute: false }, 
     { name: 'resume', href: '/resume', isRoute: true },
     { name: 'get in touch', href: 'mailto:your-email@example.com', isRoute: false },
   ];

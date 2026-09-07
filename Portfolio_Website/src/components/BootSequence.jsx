@@ -1,44 +1,39 @@
 import { useState, useEffect } from 'react';
 
-const bootProcess = [
-  { text: "$ init --profile developer", delay: 400 },
-  { text: "checking systems ............. [OK]", delay: 900 },
-  { text: "loading interfaces ........... [OK]", delay: 1300 },
-  { text: "establishing connection ...... [OK]", delay: 1700 },
-  { text: "starting session...", delay: 2200 }
-];
-
 export default function BootSequence({ onComplete }) {
-  const [lines, setLines] = useState([]);
+  // We can define the facts outside the useEffect now
+  const facts = [
+    "I love playing rugby!\n I won the State Champ twice in high school!",
+    "I love watching anime.\nMy favorite one is either 86 or Your Name \n(You can see this in my chatbot project..)",
+    "The only game I play? League of Legends\n(you probably noticed it when you saw this)",
+    "Something about Quantum Physics is really intruiging to me...",
+    "I actually had fun in my mandatory military service in Korea!"
+  ];
+
+  // This immediately picks a random fact the exact moment the component loads
+  const [fact] = useState(() => facts[Math.floor(Math.random() * facts.length)]);
 
   useEffect(() => {
-    const timeoutIds = [];
+    // Increased to 3.5 seconds (3500ms) so users have time to read the longer text
+    const timer = setTimeout(() => {
+      onComplete();
+    }, 3000);
 
-    bootProcess.forEach((line, index) => {
-      const id = setTimeout(() => {
-        setLines((prev) => [...prev, line.text]);
-
-        if (index === bootProcess.length - 1) {
-          timeoutIds.push(setTimeout(onComplete, 600));
-        }
-      }, line.delay);
-      timeoutIds.push(id);
-    });
-
-    // Clear any pending timers on unmount so React 19 StrictMode's
-    // dev-only mount/unmount/remount cycle doesn't double-fire lines.
-    return () => timeoutIds.forEach(clearTimeout);
-    // Intentionally run once on mount only — the boot sequence shouldn't
-    // restart if the parent re-renders with a new onComplete reference.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => clearTimeout(timer);
+  }, [onComplete]);
 
   return (
-    <div className="flex flex-col gap-2 text-sm text-green-500 font-mono mt-8 items-center">
-      {lines.map((line, index) => (
-        <p key={index}>{line}</p>
-      ))}
-      <span className="animate-pulse text-green-500">_</span>
+    <div className="flex h-[80vh] items-center justify-center animate-fade-in px-6">
+      {/* Added leading-relaxed for better line spacing when it drops to a new line */}
+      <p className="text-lg md:text-xl text-gray-400 font-mono text-center leading-relaxed max-w-2xl">
+        <span className="text-green-500 mr-2">&gt;</span>
+        
+        <span className="text-gray-200 mr-2">Did you know?</span> 
+        <br />
+        
+        {/* whitespace-pre-line tells the browser to convert \n into actual line breaks */}
+        <span className="whitespace-pre-line">{fact}</span>
+      </p>
     </div>
   );
 }
