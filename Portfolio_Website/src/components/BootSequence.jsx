@@ -34,7 +34,7 @@ export default function BootSequence({ onComplete }) {
   }, []);
 
   return (
-    <div className="flex flex-col gap-2 text-sm text-green-500 font-mono mt-8">
+    <div className="flex flex-col gap-2 text-sm text-green-500 font-mono mt-8 items-center">
       {lines.map((line, index) => (
         <p key={index}>{line}</p>
       ))}
